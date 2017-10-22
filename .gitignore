@@ -20,4 +20,4 @@
 *.swp
 
 .env
-.idea/
+.idea/*
