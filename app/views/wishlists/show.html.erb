@@ -1,14 +1,9 @@
 <div class="container">
   <h2>
     <%= @wishlist.name %>
-
-    <% if Rails.env.production? %>
-        <% url_share = "https://project-playtime-staging.herokuapp.com/wishlists/#{@wishlist.id}" %>
-    <% else %>
-        <% url_share = "https://project-playtime-staging.herokuapp.com/wishlists/#{@wishlist.id}" %>
-    <% end %>
-
-    <%= social_share_button_tag("Are you a hero of play? #{@wishlist.name} needs your help!",:url => url_share,desc: "Are you a hero of play? #{@wishlist.name} needs your help!") %>
+    <%= social_share_button_tag("Are you a hero of play? #{@wishlist.name} needs your help!",
+                                url: wishlist_url(@wishlist),
+                                desc: "Are you a hero of play? #{@wishlist.name} needs your help!") %>
   </h2>
 
   <% if current_user.can_manage?(@wishlist) %>

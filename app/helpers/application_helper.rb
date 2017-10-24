@@ -11,6 +11,10 @@ module ApplicationHelper
     date.to_formatted_s(:long_ordinal)
   end
 
+  def wishlist_url(wishlist)
+     request.base_url+"/wishlists/#{wishlist.id}"
+  end
+
   private
 
   def current_user_pronouns(user, perspectives, capitalize: true)
